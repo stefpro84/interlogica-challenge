@@ -1,0 +1,54 @@
+<div class="col-md-12">
+  <div class="card card-container">
+    <div class="container custom-container">
+  <div class="col-md-12">
+    <h3 class="mb-3 text-center">Mobile Number validation check!</h3>
+
+	<form
+      *ngIf="!isSuccessful"
+      name="form"
+      (ngSubmit)="f.form.valid && onSubmit()"
+      #f="ngForm"
+      novalidate
+    >
+    <div class="form-group">
+		<label for="mobileNumber">Mobile Number</label>
+		  <input
+		  	name="mobileNumber" 
+			type="text"
+			[(ngModel)]="form.mobileNumber"
+			class="form-control"
+      placeholder="Must be 11 digits"
+      #mobileNumber="ngModel"
+			required
+		/>
+	</div>
+	<div
+        class="alert alert-danger"
+        role="alert"
+        *ngIf="errorMessage"
+    >
+    MobileNumber is required!
+	</div>
+	<div class="form-group">
+        <button class="btn btn-primary btn-block">
+          Check Mobile Number
+        </button>
+    </div>    
+  <div class="alert alert-warning" *ngIf="f.submitted && isMobileNumberCheckFailed">
+        Cannot check mobile number! Error: <br />{{ errorMessage }}
+   </div>
+  </form>
+</div>
+</div>
+</div>
+</div>
+
+   <div>
+    <div *ngIf="checkResultAvailable">
+    <h4>Check result</h4>
+      <div>      
+        <pre><p>"{{ checkResult | json }}"</p></pre>  
+      </div>
+    </div>
+  </div>
