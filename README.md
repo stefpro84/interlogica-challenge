@@ -10,8 +10,11 @@ The implemented solution is composed by:
 
 ## Run
 
-### Requirements:
+### Requirements
 * Java 11+ JDK installed
+
+### Instructions 
+
 To run the application you must execute the 'mvnw' script by command line, specifying the command:
 
 * Linux: ./mvnw clean spring-boot:run
